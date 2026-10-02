@@ -11,6 +11,9 @@ Static checks (always):
     evidence quoted for verified/corrected ones
   - heuristics: numbers, versions, defaults and absolute statements ("不支持/只能/默认…")
     on a page that no ledger claim covers → warnings to go ledger & verify them
+  - new-term budget: every page lists in course.json the jargon it teaches ("terms");
+    the map page teaches none, act-0 pages at most 3, other pages at most 5, and no
+    registered term may appear (outside deep-dives) on a page before the one that teaches it
 Render checks (if Chrome/Chromium/Edge is found; set CHROME_PATH to override):
   - each page laid out at a 390px phone viewport: horizontal overflow,
     effective on-screen size of every SVG label, overlapping labels,
@@ -51,6 +54,9 @@ REQUIRED = {
     "review": ["mindmap", "retell-set", "sticking", "further"],
 }
 CLAIM_OK = {"verified", "corrected", "softened", "removed"}
+# New terms a page may teach. A learner meeting a wall of unknown words on the first pages gives
+# up before any mechanism is taught; model reviewers already know the words, so only a count catches it.
+TERM_BUDGET = {"map": 0, "act0": 3, "page": 5}
 ABSOLUTE = re.compile(r"(不支持|不能|无法|从不|从未|永远不|绝不|只能|唯一|不可能|默认|总是|一律|必然|首个|第一个|率先)")
 NUMBERISH = re.compile(
     r"(?<![\w.])(\d+\.\d+(?:\.\d+)?|(?:19|20)\d{2}|\d+(?:\.\d+)?\s*(?:%|ms|毫秒|μs|秒|KB|MB|GB|TB|KiB|MiB|GiB|万|亿|倍|bps|Mbps|Gbps|QPS|TPS|IOPS|nm|kW|MW|℃|°C|美元|元|个基点|bp))",
@@ -75,7 +81,7 @@ def attr_val(attrs, key):
 
 
 BLOCK_LABEL = {"hook": "先想一想", "anchor": "从你已经懂的出发", "figure": "图注", "points": "要点", "analogy": "打个比方",
-               "boundary": "比方在哪失效", "selftest": "自测", "retell": "复述", "recap": "本幕小结", "meta": "元概念",
+               "boundary": "比方在哪失效", "selftest": "自测", "retell": "复述", "recap": "本幕小结", "meta": "骨架",
                "route": "路线", "task": "动手", "mindmap": "思维导图图注", "retell-set": "复述挑战", "sticking": "易卡壳", "further": "往下挖"}
 
 
@@ -200,6 +206,65 @@ def factual_text(src):
         inner = re.sub(r'<p class="motto">.*?</p>', " ", inner, flags=re.S)
         keep.append(inner)
     return strip_tags("\n".join(keep))
+
+
+def term_forms(t):
+    """A registered term is a literal string, or {"term": name, "match": regex} for terms a
+    literal would miss or over-match (one-character words, families of names, inflections)."""
+    if isinstance(t, dict):
+        name = t.get("term", "")
+        return name, re.compile(t.get("match") or re.escape(name))
+    return t, re.compile(re.escape(t))
+
+
+def learner_text(src):
+    """Everything the learner meets on a page outside the optional deep-dives: block text,
+    hidden self-test answers and SVG labels (strip_tags drops SVGs, so labels are added back)."""
+    s = re.sub(r"<cite\b[^>]*>.*?</cite>", "", src, flags=re.S)
+    parts = []
+    for name, _, _, inner, _, _ in find_blocks(s):
+        if name == "deep":
+            continue
+        parts += [strip_tags(x) for x in re.findall(r"<text\b[^>]*>(.*?)</text>", inner, flags=re.S)]
+        parts.append(strip_tags(inner))
+    return " ".join(" ".join(parts).split())
+
+
+def term_checks(course_dir, course, rep):
+    work = os.path.join(course_dir, "_work")
+    pages = course["pages"]
+    taught = {}
+    for i, p in enumerate(pages):
+        for t in p.get("terms", []):
+            name, rx = term_forms(t)
+            if name in taught:
+                rep.e("course.json", "term 「%s」 is registered on both %s and %s" % (name, taught[name][1], p["id"]))
+            taught[name] = (i, p["id"], rx)
+    for i, p in enumerate(pages):
+        pid, ptype = p["id"], p.get("type", "concept")
+        if ptype == "review":
+            continue
+        if "terms" not in p:
+            rep.e(pid, 'course.json has no "terms" for this page — list the jargon it teaches (an empty list if none); see page-spec 生词预算')
+            continue
+        cap = TERM_BUDGET["map"] if ptype == "map" else TERM_BUDGET["act0"] if p.get("act", 0) == 0 else TERM_BUDGET["page"]
+        if len(p["terms"]) > cap:
+            rep.e(pid, "teaches %d new terms (%s), budget %d — split the page, or say some of them in plain words"
+                  % (len(p["terms"]), "、".join(term_forms(t)[0] for t in p["terms"]), cap))
+        path = os.path.join(work, "src", pid + ".html")
+        if not os.path.exists(path):
+            continue
+        text = learner_text(open(path, encoding="utf-8").read())
+        if ptype == "map":
+            text += " " + course.get("target", "")
+        early = ["「%s」(taught on %s)" % (n, pg) for n, (j, pg, rx) in taught.items() if j > i and rx.search(text)]
+        if early:
+            rep.e(pid, "uses terms before the page that teaches them: %s — say it in plain words here, or move the mention into the deep block"
+                  % ", ".join(early[:8]))
+        unused = [n for n, (j, _, rx) in taught.items() if j == i and not rx.search(text)]
+        if unused:
+            rep.w(pid, "registered term never appears on its own page (typo, or wrong page?): %s" % "、".join(unused))
+    rep.notes.append("terms: %d registered across %d pages" % (len(taught), sum(1 for p in pages if p.get("terms"))))
 
 
 def sentences(text):
@@ -630,6 +695,7 @@ def main():
     course_mode = os.path.exists(os.path.join(course_dir, "_work", "course.json"))
     if course_mode:
         course = static_checks(course_dir, rep)
+        term_checks(course_dir, course, rep)
         page_paths = [os.path.join(course_dir, p["id"] + ".html") for p in course["pages"]
                       if os.path.exists(os.path.join(course_dir, p["id"] + ".html"))]
         check_dir = os.path.join(course_dir, "_work", "check")

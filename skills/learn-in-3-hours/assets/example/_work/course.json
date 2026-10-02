@@ -8,9 +8,9 @@
   "theme": "ocean",
   "acts": ["立靶", "原理", "应用", "验收"],
   "pages": [
-    {"id": "00-map", "title": "学习地图", "act": 0, "type": "map"},
-    {"id": "01-compound", "title": "复利：利息也会生利息", "act": 1, "type": "concept"},
-    {"id": "02-capstone", "title": "靶心实战：早投少投 vs 晚投多投", "act": 2, "type": "capstone"},
+    {"id": "00-map", "title": "学习地图", "act": 0, "type": "map", "terms": []},
+    {"id": "01-compound", "title": "复利：利息也会生利息", "act": 1, "type": "concept", "terms": ["单利", {"term": "72 法则", "match": "72 法则|72 ÷"}]},
+    {"id": "02-capstone", "title": "靶心实战：早投少投 vs 晚投多投", "act": 2, "type": "capstone", "terms": []},
     {"id": "99-review", "title": "费曼验收", "act": 3, "type": "review"}
   ]
 }
