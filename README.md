@@ -4,13 +4,9 @@
 
 > **English:** A Claude Code skill that turns "I want to learn X" into a ~3-hour illustrated HTML course: every factual claim is checked against a primary source, diagrams are measured at phone width, and study times are computed from the content. The skill instructions and the generated courses are in Chinese.
 
-<p>
-<img src="docs/00-map.png" width="260" alt="示例课程的学习地图页">
-&nbsp;
-<img src="docs/01-compound.png" width="260" alt="示例课程第 1 页：复利">
-</p>
+<img src="docs/preview.png" width="640" alt="示例课程的学习地图页和第 1 页（手机宽度）">
 
-随 skill 附带的示例课程（复利，4 页），390px 手机宽度截图。源文件：[`assets/example/`](skills/learn-in-3-hours/assets/example/)。
+随 skill 附带的示例课程（复利，4 页）的学习地图页和第 1 页，390px 手机宽度截图。源文件：[`assets/example/`](skills/learn-in-3-hours/assets/example/)。
 
 ## 设计
 
