@@ -1,0 +1,13 @@
+[
+ {"page": "01-compound", "fig": 1, "hash": "8ed5073bce66", "verdict": "pass",
+  "reader_summary": "利息不取出、算进当年余额接着生利息；每年多出 = 余额 × 7%，余额越滚越大，后面那截越长越快",
+  "open_questions": "单利/利滚利两段如何拆分；中间年份（正文与深入层有公式）",
+  "history": "第一版 fail：图只展示结果，没标利率、没画“余额越大多出越多”的因果"},
+ {"page": "02-capstone", "fig": 1, "hash": "b58a5312ce0a", "verdict": "pass",
+  "reader_summary": "A 投得少却更多，因为 A 的钱滚了 35 年、B 只滚了 25 年，多出的 10 年在起作用",
+  "open_questions": "142.5 万如何按月复利算出（任务区参考答案里有）",
+  "history": "第一版 fail：图上没有“滚了多少年”，读者说不出原因"},
+ {"page": "99-review", "fig": 1, "hash": "2bb5d8dc39f7", "verdict": "pass",
+  "reader_summary": "复利三要点：基数在变大、时间比利率贵、72 法则估算翻倍",
+  "open_questions": "72 从何而来（第 1 页深入层）"}
+]

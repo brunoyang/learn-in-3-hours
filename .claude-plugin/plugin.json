@@ -1,0 +1,10 @@
+{
+  "name": "learn-in-3-hours",
+  "version": "0.1.0",
+  "description": "把“我想学 X”变成一套约 3 小时、逐条事实核查过的图解 HTML 课程（手机可读、时长按内容量计算）",
+  "author": { "name": "Bruno Yang" },
+  "homepage": "https://github.com/brunoyang/learn-in-3-hours",
+  "repository": "https://github.com/brunoyang/learn-in-3-hours",
+  "license": "MIT",
+  "keywords": ["learning", "course", "fact-check", "skill"]
+}

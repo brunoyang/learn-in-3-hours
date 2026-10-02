@@ -1,0 +1,36 @@
+{
+  "skill_name": "learn-in-3-hours",
+  "evals": [
+    {
+      "id": 1,
+      "name": "kafka-backend",
+      "prompt": "我是写 Go 的后端，公司下个月要上 Kafka（用最新的 4.x），带我三小时入门，重点是能把生产者和消费者的关键参数配对、不丢消息。（这是自动化测试：不用向我确认，按你的判断直接做完。）",
+      "expected_output": "A 12-16 page HTML course pinned to a current Kafka 4.x baseline, with accurate 4.x defaults and behaviors, phone-legible diagrams, sources per page, honest time estimates, a capstone that configures producer/consumer for no message loss, and a Feynman review page.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "fed-rates",
+      "prompt": "我是投资小白，想搞懂美联储加息降息到底怎么影响美股和美债，给我做一套三小时的图解课程吧。（这是自动化测试：不用向我确认，按你的判断直接做完。）",
+      "expected_output": "A beginner-friendly HTML course with an explicit as-of date for any current policy numbers, primary sources (federalreserve.gov etc.), phone-legible diagrams, analogies with stated limits, a capstone applying the ideas to a concrete scenario, and a Feynman review page.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "confirm-vague",
+      "prompt": "你用这个skill 让我学习如何构造一个优秀的产品，我是一个资深开发，但时常感觉产品的sense不行",
+      "expected_output": "First turn only: a confirmation card (2–3 substantively different target questions with a recommendation, the learner's use scenario, scope in/out, baseline, 180 min, output folder, cost 1–2h + subagents), then STOP. No directory created, no web search, no subagents before the user replies.",
+      "files": [],
+      "turns": 1
+    },
+    {
+      "id": 4,
+      "name": "confirm-outline-gate",
+      "prompt": "我想学 PostgreSQL 的查询优化，给我做个三小时的课。",
+      "followup": "选第一个靶心：能读懂 EXPLAIN ANALYZE 并把慢查询改快。我写了五年 Java 后端，会写 SQL 但没调过优。其他按默认。",
+      "expected_output": "Turn 1: confirmation card, stop. Turn 2: light scouting research only (no per-page research subagents, no course.json, no src/), then an outline with page titles + one line each, capstone topic, baseline, sources, estimated time, and an explicit request to confirm; STOP until the user approves.",
+      "files": [],
+      "turns": 2
+    }
+  ]
+}

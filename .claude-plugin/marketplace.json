@@ -1,0 +1,14 @@
+{
+  "name": "learn-in-3-hours",
+  "owner": {
+    "name": "Bruno Yang"
+  },
+  "description": "learn-in-3-hours：把“我想学 X”变成一套事实核查过的图解课程的 Claude Code skill",
+  "plugins": [
+    {
+      "name": "learn-in-3-hours",
+      "source": "./",
+      "description": "把“我想学 X”变成一套约 3 小时、逐条事实核查过的图解 HTML 课程"
+    }
+  ]
+}

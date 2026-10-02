@@ -1,0 +1,102 @@
+/* learn-in-3-hours 课程统一样式。build_course.py 会把它内联进每一页。
+   颜色全部走 token，浅色/深色自动切换；图解 SVG 用下方 .n/.e/.t 类，不要写死颜色。 */
+:root{
+  --bg:#f6f7f9;--card:#ffffff;--ink:#1a1d23;--ink2:#454c59;--muted:#737b8a;--line:#e2e5ea;
+  --accent:#2563eb;--accent-soft:#eaf0ff;--accent2:#c2410c;--accent2-soft:#fdf0e8;
+  --ok:#15803d;--ok-soft:#e8f6ec;--warn:#b91c1c;--warn-soft:#fdecec;
+  --node-bg:#ffffff;--node-stroke:#9aa3b2;--edge:#6b7383;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0f1115;--card:#171a21;--ink:#e8eaee;--ink2:#bcc2cc;--muted:#8a91a0;--line:#2a2f3a;
+  --accent:#7aa7ff;--accent-soft:#1a2440;--accent2:#fb923c;--accent2-soft:#2d1e12;
+  --ok:#4ade80;--ok-soft:#13261a;--warn:#f87171;--warn-soft:#2c1515;
+  --node-bg:#1d212a;--node-stroke:#5b6474;--edge:#8f98a8;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC","Source Han Sans SC","WenQuanYi Micro Hei",sans-serif}
+a{color:var(--accent)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;background:var(--accent-soft);padding:0 .3em;border-radius:4px;overflow-wrap:anywhere}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 32px}
+.top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:8px 16px;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--muted)}
+.top .act{color:var(--accent);font-weight:700}
+.kicker{margin:22px 0 0;font-size:13px;color:var(--muted)}
+h1{font-size:26px;line-height:1.3;margin:4px 0 6px}
+.lede{font-size:17px;color:var(--ink2);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:14px 0}
+.card>h2.lbl{margin:0 0 6px;font-size:13px;letter-spacing:.04em;color:var(--accent);font-weight:700}
+.card{overflow-wrap:anywhere}
+.card p{margin:.4em 0}
+.card ul,.card ol{margin:.3em 0;padding-left:1.3em}
+.card li{margin:.25em 0}
+.card-hook{background:var(--accent-soft);border-color:transparent}
+.card-hook p{font-size:17px;font-weight:600}
+.card-boundary{background:var(--warn-soft);border-color:transparent}
+.card-boundary>h2.lbl{color:var(--warn)}
+.card-analogy>h2.lbl,.card-task>h2.lbl{color:var(--accent2)}
+.card-recap{border:2px solid var(--accent)}
+.card-target{background:var(--accent-soft);border-color:transparent;font-size:17px;font-weight:600}
+figure.card{padding:12px 8px}
+figure svg{display:block;width:100%;max-width:480px;height:auto;margin:0 auto}
+figcaption{font-size:14px;color:var(--muted);margin-top:8px;text-align:center}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.scroll svg{max-width:none}
+.scroll-hint{font-size:12px;color:var(--muted);text-align:center}
+details.card>summary{cursor:pointer;font-weight:700;color:var(--ink2);list-style:none}
+details.card>summary::-webkit-details-marker{display:none}
+details.card>summary::before{content:"▸ ";color:var(--accent)}
+details.card[open]>summary::before{content:"▾ "}
+details.card[open]>summary{margin-bottom:6px}
+.q{border-top:1px dashed var(--line);padding:8px 0}
+.q:first-of-type{border-top:0}
+.q>details>summary{cursor:pointer;color:var(--accent);font-size:14px}
+.q>details>div,.q>details>p{background:var(--ok-soft);border-radius:8px;padding:8px 12px;margin-top:6px}
+pre{margin:.5em 0;padding:10px 12px;background:var(--bg);border:1px solid var(--line);border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.55;overflow-wrap:normal}
+pre code{background:none;padding:0;font-size:inherit;overflow-wrap:normal;white-space:pre}
+.motto{font-size:20px;font-weight:700;margin:.2em 0 .4em}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.55}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600;white-space:nowrap}
+.ana{border-top:1px solid var(--line);padding:10px 0}
+.card-analogies .ana:first-of-type{border-top:0}
+.ana-p{font-size:13px;font-weight:700;color:var(--accent);text-decoration:none}
+.ana p{margin:.2em 0}
+.ana-b{margin:.2em 0;padding-left:1.2em;font-size:14px;color:var(--warn)}
+.ana-blank p,.ana-blank li{border-bottom:1px dashed var(--line)}
+sup.cite a{text-decoration:none;font-size:11px;padding:0 1px}
+.sources ol{font-size:13px;color:var(--ink2);padding-left:1.4em}
+.sources li{margin:.3em 0;overflow-wrap:anywhere}
+.meta-note{font-size:13px;color:var(--muted)}
+.pager{max-width:760px;margin:0 auto;padding:12px 16px 28px;display:flex;justify-content:space-between;gap:8px;font-size:15px}
+.pager a,.pager span{flex:1}
+.pager .mid{text-align:center}.pager .nx{text-align:right}
+.done-row{max-width:760px;margin:8px auto 0;padding:0 16px}
+.done-btn{width:100%;padding:12px;border-radius:10px;border:1px solid var(--accent);background:transparent;color:var(--accent);font-size:16px;font-weight:700;cursor:pointer}
+.done-btn.on{background:var(--accent);color:#fff}
+.bar{height:4px;background:var(--line);border-radius:2px;margin:10px 16px 0;max-width:728px}
+.bar>i{display:block;height:100%;background:var(--accent);border-radius:2px;width:0}
+.tick{color:var(--ok);font-weight:700}
+/* ---- 图解 SVG 语义类。字号是 viewBox 单位：viewBox 宽 340 时，1 单位 ≈ 手机上 1px（390px 屏减去边距后图宽约 340px） ---- */
+svg text{font-family:inherit}
+.n{fill:var(--node-bg);stroke:var(--node-stroke);stroke-width:1.5}
+.n-a{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.8}
+.n-b{fill:var(--accent2-soft);stroke:var(--accent2);stroke-width:1.8}
+.n-ok{fill:var(--ok-soft);stroke:var(--ok);stroke-width:1.8}
+.n-w{fill:var(--warn-soft);stroke:var(--warn);stroke-width:1.8}
+.n-ghost{fill:none;stroke:var(--node-stroke);stroke-width:1.2;stroke-dasharray:5 4}
+.e{stroke:var(--edge);stroke-width:1.8;fill:none}
+.e-a{stroke:var(--accent);stroke-width:2.2;fill:none}
+.e-b{stroke:var(--accent2);stroke-width:2.2;fill:none}
+.e-w{stroke:var(--warn);stroke-width:2;fill:none}
+.e-d{stroke-dasharray:5 4}
+.ah{fill:var(--edge)}.ah-a{fill:var(--accent)}.ah-b{fill:var(--accent2)}.ah-w{fill:var(--warn)}
+.t{fill:var(--ink);font-size:15px}
+.t-s{fill:var(--ink2);font-size:13px}
+.t-b{fill:var(--ink);font-size:16px;font-weight:700}
+.t-h{fill:var(--ink);font-size:18px;font-weight:700}
+.t-a{fill:var(--accent)}.t-b2{fill:var(--accent2)}.t-ok{fill:var(--ok)}.t-w{fill:var(--warn)}.t-m{fill:var(--muted)}
+.c{text-anchor:middle}.r{text-anchor:end}
+.fill-a{fill:var(--accent)}.fill-b{fill:var(--accent2)}.fill-ok{fill:var(--ok)}.fill-w{fill:var(--warn)}.fill-m{fill:var(--line)}

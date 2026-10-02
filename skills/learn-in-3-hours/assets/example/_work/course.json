@@ -1,0 +1,16 @@
+{
+  "title": "一小时学复利（示例课程）",
+  "slug": "example-compound-interest",
+  "target": "能自己算出“早 10 年开始定投”和“晚 10 年但每月多投一倍”谁更划算，并能向朋友讲清为什么。",
+  "learner": "零基础，会用手机计算器",
+  "baseline": "数学规律，不随版本变化；示例数据为假设利率",
+  "target_minutes": 45,
+  "theme": "ocean",
+  "acts": ["立靶", "原理", "应用", "验收"],
+  "pages": [
+    {"id": "00-map", "title": "学习地图", "act": 0, "type": "map"},
+    {"id": "01-compound", "title": "复利：利息也会生利息", "act": 1, "type": "concept"},
+    {"id": "02-capstone", "title": "靶心实战：早投少投 vs 晚投多投", "act": 2, "type": "capstone"},
+    {"id": "99-review", "title": "费曼验收", "act": 3, "type": "review"}
+  ]
+}

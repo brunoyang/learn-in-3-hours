@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+*.pyc
+# courses built while trying the skill out
+learn-*/
+!skills/learn-in-3-hours/

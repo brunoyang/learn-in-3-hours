@@ -1,0 +1,5 @@
+[
+  {"id": "S1", "title": "Compound interest", "url": "https://en.wikipedia.org/wiki/Compound_interest", "publisher": "Wikipedia", "date": "accessed 2026-09", "tier": 2},
+  {"id": "S2", "title": "Rule of 72", "url": "https://en.wikipedia.org/wiki/Rule_of_72", "publisher": "Wikipedia", "date": "accessed 2026-09", "tier": 2},
+  {"id": "S3", "title": "Compound Interest Calculator", "url": "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator", "publisher": "U.S. SEC · Investor.gov", "date": "accessed 2026-09", "tier": 1}
+]

@@ -1,0 +1,76 @@
+<p data-block="lede">越早开始差距越大，是因为“计息的那笔钱”自己在变大。</p>
+
+<section data-block="hook">
+<p>同样年化 7%，1 万元放 10 年多出约 0.97 万，放 30 年却多出约 6.6 万——时间是 3 倍，收益却是近 7 倍。多出来的钱从哪来？</p>
+</section>
+
+<section data-block="anchor">
+<p>你已经懂<b>单利</b>：每年只按最初的本金算利息。1 万元、7%，就是每年 700 元，雷打不动。</p>
+</section>
+
+<figure data-block="figure" data-teaches="复利下利息并入本金、也开始生利息，所以同样利率下时间越长，“利滚利”那部分越大，30 年时成了最大的一块。">
+<svg viewBox="0 0 340 358" role="img" aria-label="1 万元按年化 7% 复利，第 0、10、20、30 年余额构成：本金、单利部分、利滚利部分；30 年时利滚利部分最大">
+  <rect class="n" x="14" y="12" width="12" height="12" rx="2"/><text class="t-s" x="32" y="23">本金</text>
+  <rect class="n-b" x="96" y="12" width="12" height="12" rx="2"/><text class="t-s" x="114" y="23">单利部分</text>
+  <rect class="n-a" x="192" y="12" width="12" height="12" rx="2"/><text class="t-s" x="210" y="23">利滚利部分</text>
+  <line class="e" x1="14" y1="280" x2="326" y2="280"/>
+  <rect class="n" x="30" y="251.1" width="48" height="28.9"/>
+  <text class="t-b c" x="54" y="243">1万</text>
+  <text class="t c" x="54" y="302">第0年</text>
+  <rect class="n" x="105" y="251.1" width="48" height="28.9"/>
+  <rect class="n-b" x="105" y="230.9" width="48" height="20.2"/>
+  <rect class="n-a" x="105" y="223.2" width="48" height="7.7"/>
+  <text class="t-b c" x="129" y="215">1.97万</text>
+  <text class="t c" x="129" y="302">第10年</text>
+  <rect class="n" x="180" y="251.1" width="48" height="28.9"/>
+  <rect class="n-b" x="180" y="210.6" width="48" height="40.5"/>
+  <rect class="n-a" x="180" y="168.1" width="48" height="42.5"/>
+  <text class="t-b c" x="204" y="160">3.87万</text>
+  <text class="t c" x="204" y="302">第20年</text>
+  <rect class="n" x="255" y="251.1" width="48" height="28.9"/>
+  <rect class="n-b" x="255" y="190.4" width="48" height="60.7"/>
+  <rect class="n-a" x="255" y="60" width="48" height="130.4"/>
+  <text class="t-b c" x="279" y="52">7.61万</text>
+  <text class="t-b c t-a" x="279" y="131">4.5万</text>
+  <text class="t c" x="279" y="302">第30年</text>
+  <text class="t-s c" x="170" y="328">1 万元、年化 7%，利息不取出</text>
+  <text class="t-s c t-a" x="170" y="348">每年多出 = 当年余额 × 7%：余额越大，多出越多</text>
+</svg>
+<figcaption>每根柱子最上面那段是“利息生的利息”：前 10 年几乎看不见，30 年时已是最大的一块。</figcaption>
+</figure>
+
+<section data-block="points">
+<ul>
+<li>复利：每期利息并入本金，下一期连它一起计息<cite data-src="S1"></cite></li>
+<li>增长靠“基数在变大”，所以曲线越往后越陡</li>
+<li>粗算翻倍时间：72 ÷ 年利率（%）。7% 大约 10 年翻一倍<cite data-src="S2"></cite></li>
+</ul>
+</section>
+
+<section data-block="analogy">
+<p>滚雪球：雪球越大，滚一圈粘上的雪越多；新粘上的雪，下一圈也会帮着粘雪。</p>
+</section>
+
+<section data-block="boundary">
+<ul>
+<li>雪球只会越滚越大；真实投资的收益率每年波动，也可能亏损，复利公式只描述“利率稳定且利息不取出”的理想情况。</li>
+<li>雪球没有“结算频率”；复利按年、按月还是按日结算，结果会略有不同<cite data-src="S1"></cite></li>
+</ul>
+</section>
+
+<details data-block="deep">
+<summary>72 法则从哪来、什么时候不准</summary>
+<p>翻倍意味着 (1+r)<sup>t</sup> = 2，所以 t = ln2 ÷ ln(1+r)。用 72 当分子，是因为它在常见利率（约 6%–10%）、按年复利时近似得好，又能被 2、3、4、6、8、9、12 整除，方便心算；利率越高，误差越大<cite data-src="S2"></cite>。</p>
+</details>
+
+<section data-block="selftest">
+<div class="q"><p>年化 3%，大约多少年翻倍？</p>
+<details><summary>看答案</summary><p>72 ÷ 3 ≈ 24 年（精确值约 23.4 年）。</p></details></div>
+<div class="q"><p>1 万元、7%，按单利放 30 年变多少？按复利呢？</p>
+<details><summary>看答案</summary><p>单利：1 万 + 30 × 700 = 3.1 万；复利：约 7.61 万。差出的约 4.5 万，就是“利息生的利息”。</p></details></div>
+</section>
+
+<section data-block="retell">
+<p class="motto">利息也会生利息</p>
+<p>合上页面，给朋友解释：为什么同样 7%，放 30 年多出的钱是放 10 年的近 7 倍？</p>
+</section>

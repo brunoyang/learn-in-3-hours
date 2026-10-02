@@ -1,0 +1,134 @@
+[
+ {
+  "id": "C1",
+  "page": "01-compound",
+  "kind": "definition",
+  "text": "复利：每期利息并入本金，下一期连它一起计息；单利只按最初本金计息",
+  "sources": [
+   "S1"
+  ],
+  "url": "https://en.wikipedia.org/wiki/Compound_interest",
+  "evidence": "Compound interest is contrasted with simple interest, where previously accumulated interest is not added to the principal amount of the current period.",
+  "status": "verified"
+ },
+ {
+  "id": "C2",
+  "page": "01-compound",
+  "kind": "computed",
+  "text": "1 万元年化 7% 按年复利：10 年约 1.97 万，20 年约 3.87 万，30 年约 7.61 万；30 年利滚利部分约 4.5 万；每年多出 = 当年余额 × 7%",
+  "sources": [
+   "S1"
+  ],
+  "url": "https://en.wikipedia.org/wiki/Compound_interest",
+  "evidence": "computed A=P(1+r)^n: 10000*1.07**10=19671.5; **20=38696.8; **30=76122.6; 76122.6-10000-21000=45122.6; A_{n+1}-A_n = 0.07*A_n",
+  "status": "verified"
+ },
+ {
+  "id": "C3",
+  "page": "01-compound",
+  "kind": "computed",
+  "text": "放 10 年多出约 0.97 万，放 30 年多出约 6.6 万，近 7 倍；单利 30 年 1 万变 3.1 万，每年 700 元",
+  "sources": [
+   "S1"
+  ],
+  "url": "https://en.wikipedia.org/wiki/Compound_interest",
+  "evidence": "computed: 19671.5-10000=9671.5; 76122.6-10000=66122.6; ratio 6.84; simple: 10000+30*700=31000",
+  "status": "verified"
+ },
+ {
+  "id": "C4",
+  "page": "01-compound",
+  "kind": "rule",
+  "text": "72 法则：翻倍年数约等于 72 除以年利率（%）；7% 大约 10 年翻一倍",
+  "sources": [
+   "S2"
+  ],
+  "url": "https://en.wikipedia.org/wiki/Rule_of_72",
+  "evidence": "The rule number (e.g., 72) is divided by the interest percentage per period (usually years) to obtain the approximate number of periods required for doubling. (72/7=10.3; exact ln2/ln1.07=10.24)",
+  "status": "verified"
+ },
+ {
+  "id": "C5",
+  "page": "01-compound",
+  "kind": "rule",
+  "text": "72 在常见利率约 6%–10%、按年复利时近似得好，可被 2、3、4、6、8、9、12 整除；利率越高误差越大",
+  "sources": [
+   "S2"
+  ],
+  "url": "https://en.wikipedia.org/wiki/Rule_of_72",
+  "evidence": "It provides a good approximation for annual compounding, and for compounding at typical rates (from 6% to 10%); the approximations are less accurate at higher interest rates.",
+  "status": "verified"
+ },
+ {
+  "id": "C6",
+  "page": "01-compound",
+  "kind": "computed",
+  "text": "年化 3% 约 24 年翻倍（精确值约 23.4 年）",
+  "sources": [
+   "S2"
+  ],
+  "url": "https://en.wikipedia.org/wiki/Rule_of_72",
+  "evidence": "computed: 72/3=24; ln2/ln1.03=23.45",
+  "status": "verified"
+ },
+ {
+  "id": "C7",
+  "page": "01-compound",
+  "kind": "mechanism",
+  "text": "复利按年、按月还是按日结算，结果会略有不同",
+  "sources": [
+   "S1"
+  ],
+  "url": "https://en.wikipedia.org/wiki/Compound_interest",
+  "evidence": "Compounded interest depends on the simple interest rate applied and the frequency at which the interest is compounded.",
+  "status": "verified"
+ },
+ {
+  "id": "C8",
+  "page": "02-capstone",
+  "kind": "computed",
+  "text": "A 25 岁起月投 1000 元、年化 6% 按月复利，共投入 42 万，60 岁约 142.5 万，收益约 100 万；B 35 岁起月投 2000 元，共投入 60 万，约 138.6 万，收益约 79 万；A 多约 3.9 万，B 收益少约 21 万；B 多投 18 万本金；都投到 60 岁，A 的钱最多滚 35 年、B 最多滚 25 年，A 最早投的钱多滚了 10 年",
+  "sources": [
+   "S3"
+  ],
+  "url": "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator",
+  "evidence": "computed FV annuity i=0.005: 1000*((1.005**420-1)/0.005)=1424710; 2000*((1.005**300-1)/0.005)=1385988; 1424710-420000=1004710; 1385988-600000=785988; 600000-420000=180000; 60-25=35, 60-35=25",
+  "status": "verified"
+ },
+ {
+  "id": "C9",
+  "page": "02-capstone",
+  "kind": "computed",
+  "text": "6% 约 12 年翻一倍；多出的 10 年让钱多涨约 80%",
+  "sources": [
+   "S2"
+  ],
+  "url": "https://en.wikipedia.org/wiki/Rule_of_72",
+  "evidence": "computed: 72/6=12; 1.06**10=1.79",
+  "status": "verified"
+ },
+ {
+  "id": "C10",
+  "page": "99-review",
+  "kind": "rule",
+  "text": "72 法则是心算近似，利率越高误差越大",
+  "sources": [
+   "S2"
+  ],
+  "url": "https://en.wikipedia.org/wiki/Rule_of_72",
+  "evidence": "the approximations are less accurate at higher interest rates.",
+  "status": "verified"
+ },
+ {
+  "id": "C11",
+  "page": "99-review",
+  "kind": "rule",
+  "text": "69.3 法则：连续复利时比 72 更准",
+  "sources": [
+   "S2"
+  ],
+  "url": "https://en.wikipedia.org/wiki/Rule_of_72",
+  "evidence": "the rule of 72, the rule of 70 and the rule of 69.3 are methods for estimating an investment's doubling time ... 69 is more accurate for continuous compounding",
+  "status": "verified"
+ }
+]
