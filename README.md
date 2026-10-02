@@ -106,7 +106,7 @@ python3 $S/merge_verdicts.py <课程目录> [--dry-run]     # 合并多个核查
 
 ## 致谢
 
-思路来自朱卫军的 [learn-in-3-hours](https://github.com/zhuweijun1003-source/zhuwj-skills)。本仓库的 SKILL.md、规范文档和脚本都是重新写的，没有收录原仓库的文件。
+灵感来自朱卫军的 [learn-in-3-hours](https://github.com/zhuweijun1003-source/zhuwj-skills)。
 
 ## 许可证
 
