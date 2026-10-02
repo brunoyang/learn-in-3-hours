@@ -64,6 +64,7 @@ S=skills/learn-in-3-hours/scripts
 python3 $S/build_course.py   <课程目录>                               # 生成页面并估算时长
 python3 $S/check_course.py   <课程目录> [--no-render] [--full-shots]  # 质检，有错误时退出码为 1
 python3 $S/merge_verdicts.py <课程目录> [--dry-run]                   # 将核查结论合并进台账和页面
+python3 $S/build_library.py  <多门课的上级目录> [--stage <输出目录>]    # 生成课程总目录；--stage 打包成可发布到网上的版本
 ```
 
 `check_course.py` 在没有 `_work/course.json` 的目录上以通用模式运行，只检查外部依赖和手机渲染，适用于任意 HTML 页面。
